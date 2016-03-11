@@ -44,8 +44,5 @@ class Board
     random_number = (rand(0..8).to_s)
   end
 
-
-  # def combine_boards
-  #
-
+  
 end
