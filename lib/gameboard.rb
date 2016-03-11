@@ -6,6 +6,10 @@ class Board
                     "7" => " ", "8" => " ", "9" => " "}
   end
 
+  def structure
+    @board_values
+  end
+
   def initial_display
     puts ""
     puts " 1 | 2 | 3 "
@@ -16,23 +20,32 @@ class Board
     puts ""
   end
 
+  def new_move(location, marker)
+    @board_values[location] = marker
+  end
+
   def current_display
-    puts " #{@board_values["1"]} | #{@board_values["2"]} | #{@board_values["3"]} "
+    puts " #{get "1"} | #{get "2"} | #{get "3"} "
     puts "---+---+---"
-    puts " #{@board_values["4"]} | #{@board_values["5"]} | #{@board_values["6"]} "
+    puts " #{get "4"} | #{get "5"} | #{get "6"} "
     puts "---+---+---"
-    puts " #{@board_values["7"]} | #{@board_values["8"]} | #{@board_values["9"]} "
+    puts " #{get "7"} | #{get "8"} | #{get "9"} "
   end
 
-  def moves_that_win
-    [[1, 2, 3], [4, 5, 6], [7, 8, 9],
-    [1, 4, 7], [2, 5, 8], [3, 6, 9],
-    [1, 5, 9], [3, 5, 7]]
+  def get(key)
+    if @board_values[key] == " "
+      return key
+    else
+      @board_values[key]
+    end
   end
 
-  board.moves_that_win.each do |winner|
-   if board.board[winner[0] - 1] == "X" &&
-      board.board(winner[1] - 1) == "X" &&
-      board.board[winner[2] - 1] == "X"
-      puts "Winner!"
+  def choice
+    random_number = (rand(0..8).to_s)
+  end
+
+
+  # def combine_boards
+  #
+
 end

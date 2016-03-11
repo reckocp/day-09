@@ -17,3 +17,18 @@ class Player
         initialize
       end
   end
+
+  def player_turn
+  end
+
+  def comp_turn
+    case @human_player_piece
+    when @human_player_piece = "X"
+      @computer_player_piece = "O"
+    when @human_player_piece = "O"
+      @computer_player_piece = "X"
+  end
+
+  def processing
+  end
+end
