@@ -26,18 +26,21 @@ class Tictactoe
       puts "You've chosen square #{@player_move}. Please wait while the computer takes a turn."
       sleep 1
       computer_move
+      how_to_tie
+        if @unavail_boxes == 9
+          break
+        end
       @updated_board = @board.current_display
       puts @updated_board
       how_to_win
-      how_to_tie
-      if @x_wins == 1
-        break
-      elsif @o_wins == 1
-        break
-      elsif @unavail_boxes == 9
-        puts "It's a tie. Try again."
-        break
-      end
+        if @x_wins == 1
+          break
+        elsif @o_wins == 1
+          break
+        elsif @unavail_boxes == 9
+          puts "It's a tie. Try again."
+          break
+        end
     end
   end
 
